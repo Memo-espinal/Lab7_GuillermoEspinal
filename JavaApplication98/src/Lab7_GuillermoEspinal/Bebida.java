@@ -13,14 +13,7 @@ import javax.swing.JOptionPane;
  * @author admin
  */
 public class Bebida {
-    /* Los detalles que el supermercado quiere manejar es un código de 8 dígitos 
-       que único para cada bebida, nombre de la marca , nombre de la bebida ,
-        cantidad de azúcar en onzas , 
-        cantidad de alcohol en porcentaje(No puede ser mayor a 100),
-        si es producto nacional o no, número de lote ,
-        que colorantes tiene (Azul-4 , Rojo-69 , Verde-420 , Amarillo-77 , Blanco-07 puede tener más de uno) ,
-    precio, cantidad, y fecha de vencimiento. 
-    */
+    
     private int codigo;
     private  String marca;
     private String nombre;
@@ -39,7 +32,7 @@ public class Bebida {
     public Bebida() {
     }
 
-    public Bebida(int codigo, String marca, String nombre, int cant_azucar, double alcohol, String nacional, int numero_lote, String colorantes, double precio, int cantidad, Date fechavencimiento) {
+    public Bebida(int codigo, String nombre, String marca, int cant_azucar, double alcohol, String nacional, int numero_lote, String colorantes, double precio, int cantidad, Date fechavencimiento) {
         this.codigo = codigo;
         this.marca = marca;
         this.nombre = nombre;
@@ -94,12 +87,21 @@ public class Bebida {
 
     public void setAlcohol(double alcohol) {
         if (alcohol >100||alcohol <1) {
-            JOptionPane.showMessageDialog(null,"La cantidad de alcohol no puede ser mayor a 100");
+            setAlcohol(Double.parseDouble(JOptionPane.showInputDialog(null,"La cantidad de alcohol no puede ser mayor a 100")));
             
         }else {
             this.alcohol = alcohol;
         }
     }
+
+    public String getNacional() {
+        return nacional;
+    }
+
+    public void setNacional(String nacional) {
+        this.nacional = nacional;
+    }
+    
 
   /*  public boolean isNacional() {
         return nacional;
@@ -113,6 +115,7 @@ public class Bebida {
             this.nacional=false;
         }
     }
+*/
 
     public int getNumero_lote() {
         return numero_lote;

@@ -19,17 +19,16 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import javax.swing.table.DefaultTableModel;
 
 public class Login extends javax.swing.JFrame {
 
-    
     public Login() throws FileNotFoundException {
+         CargarBebidas();
         initComponents();
-        CargarBebidas();
+        Cargarbebidastabla();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,16 +55,16 @@ public class Login extends javax.swing.JFrame {
         rb_si = new javax.swing.JRadioButton();
         tf_precio = new javax.swing.JTextField();
         tf_alcohol = new javax.swing.JTextField();
-        tf_codigo = new javax.swing.JTextField();
         tf_marca = new javax.swing.JTextField();
         tf_cant = new javax.swing.JTextField();
         tf_azucar = new javax.swing.JTextField();
         tf_num = new javax.swing.JTextField();
         bt_agregar = new javax.swing.JButton();
         tf_fecha = new javax.swing.JFormattedTextField();
+        tf_codigo = new javax.swing.JFormattedTextField();
         bg_nacional = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         mn_op = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -124,6 +123,8 @@ public class Login extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        tf_codigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("########"))));
+
         javax.swing.GroupLayout jd_addLayout = new javax.swing.GroupLayout(jd_add.getContentPane());
         jd_add.getContentPane().setLayout(jd_addLayout);
         jd_addLayout.setHorizontalGroup(
@@ -134,48 +135,45 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jd_addLayout.createSequentialGroup()
                         .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_addLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_addLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_num, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_addLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_si)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_no)))
+                        .addGap(0, 487, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_addLayout.createSequentialGroup()
+                        .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jd_addLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_addLayout.createSequentialGroup()
                                 .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jd_addLayout.createSequentialGroup()
-                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tf_cant, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jd_addLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_num, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jd_addLayout.createSequentialGroup()
-                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rb_si)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rb_no)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_addLayout.createSequentialGroup()
-                                .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jd_addLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_addLayout.createSequentialGroup()
-                                        .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jd_addLayout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tf_cant, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jd_addLayout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jd_addLayout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel9)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(174, 174, 174))
+                                        .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))
                     .addGroup(jd_addLayout.createSequentialGroup()
                         .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -217,9 +215,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -268,18 +266,29 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nombre", "Marca", "Azucar", "Alcohol", "Nacional", "Numero de Lote", "Colorantes", "Precio", "Cantidad en almacen", "Fecha de vencimiento"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setResizable(false);
+            tabla.getColumnModel().getColumn(1).setResizable(false);
+            tabla.getColumnModel().getColumn(2).setResizable(false);
+            tabla.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         mn_op.setText("OPciones");
 
@@ -309,26 +318,26 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarMouseClicked
-     
+
         try {
             int codigo = Integer.parseInt(tf_codigo.getText());
             String marca = tf_marca.getText();
-            String nombre = tf_marca.getText();
+            String nombre = tf_nombre.getText();
             String fecha = tf_fecha.getText();
             double precio = Double.parseDouble(tf_precio.getText());
             int cant = Integer.parseInt(tf_cant.getText());
@@ -338,9 +347,9 @@ public class Login extends javax.swing.JFrame {
             } else if (rb_no.isSelected()) {
                 nacional = "no";
             }
-            
+
             int lote = Integer.parseInt(tf_num.getText());
-            
+
             String colorantes = "";
             if (rb_azul.isSelected()) {
                 colorantes += "Azul-4 ";
@@ -359,82 +368,98 @@ public class Login extends javax.swing.JFrame {
             }
             int azucar = Integer.parseInt(tf_azucar.getText());
             Double alcohol = Double.parseDouble(tf_alcohol.getText());
-            
-            boolean exist =false;
+
+            boolean exist = false;
             for (int i = 0; i < bebidas.size(); i++) {
-                if (bebidas.get(i).getCodigo()==codigo) {
-                    exist=true;
+                if (bebidas.get(i).getCodigo() == codigo) {
+                    exist = true;
                 }
             }
             if (exist == true) {
                 JOptionPane.showMessageDialog(this, "Nose puede crear la bebida porque ya existe un producto con ese codigo");
-            }
-            if (exist==false){
-                SimpleDateFormat sf=new SimpleDateFormat("dd/MM/yyyy");
-                    Date date = sf.parse(fecha);
-                
-                Bebida bebida = new Bebida(codigo, marca, nombre, azucar, alcohol, nacional, lote, colorantes, precio, cant, date);
-                JOptionPane.showMessageDialog(this, "Se creo la bebida");
-                FileWriter fw = new FileWriter("./bebidas.txt",true);
+            } else if (exist == false) {
+                SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = sf.parse(fecha);
+
+                Bebida bebida = new Bebida(codigo,nombre, marca, azucar, alcohol, nacional, lote, colorantes, precio, cant, date);
+
+                FileWriter fw = new FileWriter("./bebidas.txt", true);
+
                 BufferedWriter bw = new BufferedWriter(fw);
                 bw.newLine();
-                bw.write(codigo+";"+marca+";"+nombre+";"+azucar+";"+alcohol+";"+nacional+";"+lote+";"+colorantes+";"+precio+";"+cant+";"+date+";");
-                /*bw.write(nombre+";");
-                bw.write(contra+";");
-                bw.write(roll+";");*/
+                bw.write(codigo + ";"  + nombre + ";"+ marca + ";" + azucar + ";" + alcohol + ";" + nacional + ";" + lote + ";" + colorantes + ";" + precio + ";" + cant + ";" + fecha);
+
                 bw.flush();
+
+                JOptionPane.showMessageDialog(this, "Se creo la bebida");
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
         } catch (NumberFormatException numberFormatException) {
-            
+
         } catch (ParseException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception s) {
+            s.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_bt_agregarMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       jd_add.setModal(true);
-       jd_add.pack();
-       jd_add.setEnabled(true);
-       jd_add.setVisible(true);
+        jd_add.setModal(true);
+        jd_add.pack();
+        jd_add.setEnabled(true);
+        jd_add.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
- public   void CargarBebidas() throws FileNotFoundException{
+    public void CargarBebidas() throws FileNotFoundException {
         try {
-            File file =new File("./bebidas.txt");
+            File file = new File("./bebidas.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-           // Scanner sc = new Scanner(file);
-            String linea="";
+            // Scanner sc = new Scanner(file);
+            String linea = "";
             System.out.println("estoy aqui antes del while");
             //de que forma metemos los usuarios?? well opino que sea tipo "id;nombre;contra;tipo
-            while ((linea = br.readLine()) != null){
-                System.out.println("Linea "+linea);
+            while ((linea = br.readLine()) != null) {
+                System.out.println("Linea " + linea);
                 String[] datos = linea.split(";");
                 //System.out.println(datos.length);
                 for (int i = 0; i < datos.length; i++) {
-                System.out.println(datos[i]);
+                    System.out.println(datos[i]);
                 }
-                 SimpleDateFormat sf=new SimpleDateFormat("dd/MM/yy");
-                 Date date = sf.parse(datos[10]);
-                
-                Bebida bebida = new Bebida(Integer.parseInt(datos[0]),datos[1],datos[2], Integer.parseInt(datos[3]), (Double.parseDouble(datos[4])), datos[5],Integer.parseInt(datos[6]),datos[7], Double.parseDouble(datos[8]), Integer.parseInt(datos[9]),date);
+                SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yy");
+                Date date = sf.parse(datos[10]);
+
+                Bebida bebida = new Bebida(Integer.parseInt(datos[0]), datos[1], datos[2], Integer.parseInt(datos[3]), (Double.parseDouble(datos[4])), datos[5], Integer.parseInt(datos[6]), datos[7], Double.parseDouble(datos[8]), Integer.parseInt(datos[9]), date);
                 bebidas.add(bebida);
             }
         } catch (Exception e) {
         }
-       
+
     }
+    public void Cargarbebidastabla(){
+        for (int i = 0; i <bebidas.size(); i++) {
+            Object [] newrow = {bebidas.get(i).getCodigo()
+                ,bebidas.get(i).getNombre()
+                ,bebidas.get(i).getMarca()
+                ,bebidas.get(i).getCant_azucar()
+                ,bebidas.get(i).getAlcohol()
+                    ,bebidas.get(i).getNacional()
+                    ,bebidas.get(i).getNumero_lote()
+                    ,bebidas.get(i).getColorantes()
+                    ,bebidas.get(i).getPrecio()
+                    ,bebidas.get(i).getCantidad()
+                    ,bebidas.get(i).getFechavencimiento()
+            };
+            DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+            modelo.addRow(newrow);
+            tabla.setModel(modelo);
+            
+        }
+         
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -494,7 +519,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd_add;
     private javax.swing.JMenu mn_op;
     private javax.swing.JRadioButton rb_amarillo;
@@ -504,10 +528,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_rojo;
     private javax.swing.JRadioButton rb_si;
     private javax.swing.JRadioButton rb_verde;
+    private javax.swing.JTable tabla;
     private javax.swing.JTextField tf_alcohol;
     private javax.swing.JTextField tf_azucar;
     private javax.swing.JTextField tf_cant;
-    private javax.swing.JTextField tf_codigo;
+    private javax.swing.JFormattedTextField tf_codigo;
     private javax.swing.JFormattedTextField tf_fecha;
     private javax.swing.JTextField tf_marca;
     private javax.swing.JTextField tf_nombre;
@@ -515,6 +540,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField tf_precio;
     // End of variables declaration//GEN-END:variables
 ArrayList<Bebida> bebidas = new ArrayList();
-    
-    
+
 }
