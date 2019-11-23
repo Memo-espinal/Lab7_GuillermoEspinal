@@ -873,7 +873,7 @@ public class Login extends javax.swing.JFrame {
                 bw.write("  Factura #"+cont+"           "+(new Date()));
                  bw.newLine();
                  bw.newLine();
-                bw.write(" Produc."+"         Cant"+"           Precio");
+                bw.write("Produc."+"         Cant"+"           Precio");
                 bw.newLine();
             for (int i = 0; i < lleva.size(); i++) {
                 bw.write(""+((Bebida)lleva.get(i)).getNombre()+"     "+cantidades.get(i)+"    "+((Bebida)lleva.get(i)).getPrecio());
