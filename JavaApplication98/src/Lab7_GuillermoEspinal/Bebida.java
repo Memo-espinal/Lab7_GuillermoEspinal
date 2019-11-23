@@ -27,12 +27,12 @@ public class Bebida {
     private String colorantes;
     private double precio;
     private int cantidad;
-    private Date fechavencimiento;
+    private String fechavencimiento;
 
     public Bebida() {
     }
 
-    public Bebida(int codigo, String nombre, String marca, int cant_azucar, double alcohol, String nacional, int numero_lote, String colorantes, double precio, int cantidad, Date fechavencimiento) {
+    public Bebida(int codigo, String nombre, String marca, int cant_azucar, double alcohol, String nacional, int numero_lote, String colorantes, double precio, int cantidad, String fechavencimiento) {
         this.codigo = codigo;
         this.marca = marca;
         this.nombre = nombre;
@@ -149,13 +149,28 @@ public class Bebida {
         this.cantidad = cantidad;
     }
 
-    public Date getFechavencimiento() {
+   /* public Date getFechavencimiento() {
         return fechavencimiento;
     }
 
     public void setFechavencimiento(Date fechavencimiento) {
         this.fechavencimiento = fechavencimiento;
+    }*/
+
+    public String getFechavencimiento() {
+        return fechavencimiento;
     }
+
+    public void setFechavencimiento(String fechavencimiento) {
+        this.fechavencimiento = fechavencimiento;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
+    }
+    
+    
     
     
 }

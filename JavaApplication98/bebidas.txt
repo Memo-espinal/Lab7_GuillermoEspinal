@@ -1,3 +1,7 @@
-12012012;Coca-cola;Coca;450;15.5;si;10;Azul-4 Verde-420;20;250;15/10/20
+12012012;CoCA COlA;Coca;450;15.5;;10;;20.0;250;15/10/20
 12341234;Malta;Cola;21;12.0;si;123;Azul-4 Amarillo-77 Verde-420 ;12.5;123;11/11/11
 11112233;Mirinda;Tropical;123;11.0;si;12;Azul-4 Amarillo-77 Verde-420 ;123.0;123;11/11/20
+89651232;Mountain Dew;Mountain;12;11.0;si;18;Azul-4 Verde-420 ;18.0;250;12/12/30
+10987712;Fresca;Tropical;123;11.0;no;12333;Blanco-07 ;54.0;90;12/12/11
+11223344;Uva;Tropical;123;13.0;no;1233331;Azul-4 Rojo-69 ;19.0;123;11/11/12
+99887766;Sprite;Tropical;123;34.0;no;132;Amarillo-77 Blanco-07 Verde-420 ;123.0;450;12/12/22
