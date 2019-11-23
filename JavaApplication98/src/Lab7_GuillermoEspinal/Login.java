@@ -859,7 +859,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_addMouseClicked
 
     private void bt_factMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_factMouseClicked
-         File archivo = new File("./Factura"+cont+".text");
+         File archivo = new File("./Factura"+cont+".txt");
         FileWriter fw = null;
         BufferedWriter bw = null;
         int total = 0;
@@ -869,21 +869,26 @@ public class Login extends javax.swing.JFrame {
             bw = new BufferedWriter(fw);
             bw.write(" Super mercado El Barrio ");
                 bw.newLine();
-                bw.write("  Factura #"+cont+"      "+(new Date()));
+                bw.newLine();
+                bw.write("  Factura #"+cont+"           "+(new Date()));
                  bw.newLine();
-                bw.write("Produc."+"     Cant"+"    Precio");
+                 bw.newLine();
+                bw.write(" Produc."+"         Cant"+"           Precio");
                 bw.newLine();
             for (int i = 0; i < lleva.size(); i++) {
-                bw.write(" "+((Bebida)lleva.get(i)).getNombre()+"     "+cantidades.get(i)+"    "+((Bebida)lleva.get(i)).getPrecio());
+                bw.write(""+((Bebida)lleva.get(i)).getNombre()+"     "+cantidades.get(i)+"    "+((Bebida)lleva.get(i)).getPrecio());
                 bw.newLine();
                 total+=(cantidades.get(i)*((Bebida)lleva.get(i)).getPrecio());
             }
-            bw.write("                                      "+"Total: ");
+            bw.write("                             "+"Total: ");
             bw.newLine();
-            bw.write("                                         "+total);
+            bw.write("                                 "+total);
             
             bw.flush();
             cont++;
+            lleva= new ArrayList();
+            cantidades= new ArrayList();
+            
             
              bw.close();
             fw.close();

@@ -1,0 +1,8 @@
+ Super mercado El Barrio 
+
+  Factura #1           Fri Nov 22 19:31:47 CST 2019
+
+ Produc.         Cant           Precio
+Malta     5    12.5
+                             Total: 
+                                 62
